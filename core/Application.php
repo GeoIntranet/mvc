@@ -1,10 +1,14 @@
 <?php
 namespace Blocker;
 
-class Application
+use Blocker\container\Container;
+
+class Application extends Container
 {
+
     public static function Run()
     {
         echo "Run the applciation";
     }
+
 }

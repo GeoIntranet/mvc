@@ -15,8 +15,14 @@ use Blocker\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$a = new Application;
-$a::Run();
+$app = new Application;
+$app::Run();
+
+$app->bind('test','test');
+
+$facade = new
+
+var_dump($app);
 
 require __DIR__ . '/../app/routes.php';
 $dotenv = new Dotenv\Dotenv(dirname(__DIR__));

@@ -2,13 +2,6 @@
 
 class Router extends Facade
 {
-    /**
-     * Router constructor.
-     */
-    public function __construct()
-    {
-        $this->path='';
-    }
 
     /**
      * Get the registered name of the component.

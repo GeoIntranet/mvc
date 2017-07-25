@@ -4,6 +4,7 @@ use \Blocker\router\Router as Router;
 abstract class Facade
 {
 
+    protected static $app;
 
     /**
      * Get the registered name of the component.
@@ -25,7 +26,7 @@ abstract class Facade
     public static function __callStatic($method, $args)
     {
         $name = static::getFacadeAccessor();
-        $instance = new $name();
+        $instance = new $name(static::$app);
         var_dump($args);
 
         switch (count($args))
@@ -43,5 +44,21 @@ abstract class Facade
             default:
                 return $instance;
         }
+    }
+
+    /**
+     * @param $app
+     */
+    public static function setFacadeApplication($app)
+    {
+        static::$app = $app;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getFacadeApplication()
+    {
+        return static::$app ;
     }
 }
