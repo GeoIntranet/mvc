@@ -20,7 +20,6 @@ $app::Run();
 
 $app->bind('test','test');
 
-$facade = new
 
 var_dump($app);
 
