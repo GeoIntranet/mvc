@@ -62,11 +62,13 @@ class Buz {
 
 
 
-
+//$r = new ($app);
 
 
 $container = DI\ContainerBuilder::buildDevContainer();
 $b = $container->make('Buz');
+
+$b = $container->make('Blocker\router\Router');
 
 var_dump($b);
 
