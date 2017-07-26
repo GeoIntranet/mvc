@@ -23,8 +23,61 @@ $app->bind('test','test');
 
 var_dump($app);
 
-require __DIR__ . '/../app/routes.php';
+//require __DIR__ . '/../app/routes.php';
 $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
 $dotenv->load();
+
+
+
+class Lol{
+
+}
+
+class Baz{
+    /**
+     * @var \Lol
+     */
+    private $lol;
+
+    /**
+     * Baz constructor.
+     */
+    public function __construct(Lol $lol)
+    {
+        $this->lol = $lol;
+    }
+}
+
+class Buz {
+    private $value;
+
+    /**
+     * buz constructor.
+     */
+    public function __construct(Baz $baz)
+    {
+        $this->value = $baz;
+    }
+}
+
+
+
+
+
+
+$container = DI\ContainerBuilder::buildDevContainer();
+$b = $container->make('Buz');
+
+var_dump($b);
+
+
+$buzInstance = $container->get('buz');
+$buzInstance = $container->get('buz');
+
+
+
+
+
+
 
 
