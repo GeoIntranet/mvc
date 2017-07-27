@@ -2,13 +2,15 @@
 
 use Blocker\router\facade\Router;
 
-$r = Router::define('redis');
-Router::define('redis');
-Router::define('redis');
-Router::define('redis');
-Router::define('redis');
-Router::define('redis');
-$r = Router::getRouter();
+$app_ = \Face::getApp();
+
+//$r = Router::define('redis');
+//Router::define('redis');
+//Router::define('redis');
+//Router::define('redis');
+//Router::define('redis');
+//Router::define('redis');
+//$r = Router::getRouter();
 
 
 

@@ -17,64 +17,37 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application;
 $app::Run();
+$app->set('test','test');
 
-$app->bind('test','test');
 
 
-var_dump($app);
-
-//require __DIR__ . '/../app/routes.php';
 $dotenv = new Dotenv\Dotenv(dirname(__DIR__));
 $dotenv->load();
 
+abstract class Face{
+    static $app;
 
+    public  static function setApp($app) {
+        static::$app = $app;
+    }
 
-class Lol{
-
-}
-
-class Baz{
-    /**
-     * @var \Lol
-     */
-    private $lol;
-
-    /**
-     * Baz constructor.
-     */
-    public function __construct(Lol $lol)
-    {
-        $this->lol = $lol;
+    public  static function getApp() {
+        return static::$app;
     }
 }
 
-class Buz {
-    private $value;
+ Face::setApp($app);
 
-    /**
-     * buz constructor.
-     */
-    public function __construct(Baz $baz)
-    {
-        $this->value = $baz;
-    }
-}
+require __DIR__ . '/../app/routes.php';
+//$b = $app->make('Blocker\router\Router');
+
+var_dump($app_);
+
+ // Route::define('xx');
+ // $app->get('router')->define('xxx');
 
 
 
-//$r = new ($app);
-
-
-$container = DI\ContainerBuilder::buildDevContainer();
-$b = $container->make('Buz');
-
-$b = $container->make('Blocker\router\Router');
-
-var_dump($b);
-
-
-$buzInstance = $container->get('buz');
-$buzInstance = $container->get('buz');
 
 
 
