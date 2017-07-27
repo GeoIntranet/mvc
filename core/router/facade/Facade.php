@@ -26,24 +26,26 @@ abstract class Facade
     public static function __callStatic($method, $args)
     {
         $name = static::getFacadeAccessor();
-        $instance = new $name(static::$app);
-        var_dump($args);
-
-        switch (count($args))
-        {
-            case 0:
-                return $instance->$method();
-            case 1:
-                return $instance->$method($args[0]);
-            case 2:
-                return $instance;
-            case 3:
-                return $instance;
-            case 4:
-                return $instance;
-            default:
-                return $instance;
-        }
+        var_dump($name);
+        var_dump(\Face::getApp()->get($name)->define());
+        //$instance = new $name(static::$app);
+        //var_dump($args);
+        //
+        //switch (count($args))
+        //{
+        //    case 0:
+        //        return $instance->$method();
+        //    case 1:
+        //        return $instance->$method($args[0]);
+        //    case 2:
+        //        return $instance;
+        //    case 3:
+        //        return $instance;
+        //    case 4:
+        //        return $instance;
+        //    default:
+        //        return $instance;
+        //}
     }
 
     /**

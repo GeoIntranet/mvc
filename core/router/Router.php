@@ -8,7 +8,7 @@ class Router
     /**
      * Router constructor.
      */
-    public function __construct(Application $app)
+    public function __construct(Application $app = null)
     {
         $this->routes=[];
         $this->app=$app;
@@ -17,12 +17,18 @@ class Router
 
     public function define($val = null)
     {
-        if( ! isset($this->app->container[__CLASS__])){
-            $this->app->container[__CLASS__] = $this ;
-        }
-        $this->app->container[__CLASS__]->routes[]=$val;
 
+        //if( ! isset($this->app->container[__CLASS__])){
+        //    $this->app->container[__CLASS__] = $this ;
+        //}
+        //$this->app->container[__CLASS__]->routes[]=$val;
+        //
         return 'JE DEFINIE une ROUTE';
+    }
+
+    public function initialize($val = null)
+    {
+        return \Face::getApp();
     }
 
     public function getRouter()

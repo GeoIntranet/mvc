@@ -41,7 +41,7 @@ abstract class Face{
 require __DIR__ . '/../app/routes.php';
 //$b = $app->make('Blocker\router\Router');
 
-var_dump($app_);
+
 
  // Route::define('xx');
  // $app->get('router')->define('xxx');
